@@ -1,0 +1,9 @@
+{
+  "name": "Math Utitlities",
+  "description": "Math utilities written in Go",
+  "keywords": [],
+  "image": "heroku/go:1.8",
+  "mount_dir": "src/github.com/andreaswong/go-math",
+  "website": "http://github.com/andreaswong/go-math",
+  "repository": "http://github.com/andreaswong/go-math"
+}
