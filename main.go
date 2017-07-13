@@ -4,9 +4,17 @@ import (
 	"fmt"
 	"net/http"
 	"strconv"
+	"os"
+	"log"
 )
 
 func main() {
+	port := os.Getenv("PORT")
+
+	if port == "" {
+		port = 8888;
+	}
+
 	http.HandleFunc("/api/math/even", func(w http.ResponseWriter, r *http.Request) {
 		numberStr := r.URL.Query().Get("number")
 
@@ -23,5 +31,5 @@ func main() {
 		}
 	})
 
-	fmt.Println(http.ListenAndServe(":8889", nil))
+	fmt.Println(http.ListenAndServe(fmt.Sprintf(":%d", port), nil))
 }
