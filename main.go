@@ -3,16 +3,15 @@ package main
 import (
 	"fmt"
 	"net/http"
-	"strconv"
 	"os"
-	"log"
+	"strconv"
 )
 
 func main() {
 	port := os.Getenv("PORT")
 
 	if port == "" {
-		port = 8888;
+		port = "8889"
 	}
 
 	http.HandleFunc("/api/math/even", func(w http.ResponseWriter, r *http.Request) {
@@ -26,10 +25,10 @@ func main() {
 					fmt.Fprintf(w, "false")
 				}
 			} else {
-				fmt.Fprintf(w, numberStr + " is not a number")
+				fmt.Fprintf(w, numberStr+" is not a number")
 			}
 		}
 	})
 
-	fmt.Println(http.ListenAndServe(fmt.Sprintf(":%d", port), nil))
+	fmt.Println(http.ListenAndServe(":"+port, nil))
 }
