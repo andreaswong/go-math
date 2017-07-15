@@ -9,8 +9,16 @@
 	"ignore": "test",
 	"package": [
 		{
+			"checksumSHA1": "rup6A1oOeMGcvGz56/dCnbLPNqM=",
 			"path": "github.com/sirupsen/logrus",
-			"revision": ""
+			"revision": "51dc0fc64317a2861273909081f9c315786533eb",
+			"revisionTime": "2017-07-13T11:57:24Z"
+		},
+		{
+			"checksumSHA1": "VmSgg0+AGPLOL6WYjSNMKqelZhI=",
+			"path": "golang.org/x/sys/unix",
+			"revision": "4cd6d1a821c7175768725b55ca82f14683a29ea4",
+			"revisionTime": "2017-07-14T13:21:52Z"
 		}
 	],
 	"rootPath": "github.com/andreaswong/go-math"
