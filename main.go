@@ -6,6 +6,7 @@ import (
 	"os"
 	"strconv"
 	"github.com/sirupsen/logrus"
+	"net/http/httputil"
 )
 
 func main() {
@@ -16,8 +17,8 @@ func main() {
 	}
 
 	http.HandleFunc("/api/math/even", func(w http.ResponseWriter, r *http.Request) {
-		r.ParseForm()
-		logrus.Info("form=%v", r.Form)
+		content, _ := httputil.DumpRequest(r, true)
+		logrus.Info("body=%v", content)
 		numberStr := r.URL.Query().Get("number")
 
 		if len(numberStr) > 0 {
