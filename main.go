@@ -16,7 +16,8 @@ func main() {
 	}
 
 	http.HandleFunc("/api/math/even", func(w http.ResponseWriter, r *http.Request) {
-		logrus.Info("form=%v", r.ParseForm())
+		r.ParseForm()
+		logrus.Info("form=%v", r.Form)
 		numberStr := r.URL.Query().Get("number")
 
 		if len(numberStr) > 0 {
