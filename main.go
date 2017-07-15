@@ -15,6 +15,7 @@ func main() {
 	}
 
 	http.HandleFunc("/api/math/even", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Printf("form=%v", r.ParseForm())
 		numberStr := r.URL.Query().Get("number")
 
 		if len(numberStr) > 0 {
