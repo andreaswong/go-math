@@ -3,15 +3,15 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"net/http/httputil"
 	"os"
 	"strconv"
+
 	"github.com/sirupsen/logrus"
-	"net/http/httputil"
 )
 
 func main() {
 	port := os.Getenv("PORT")
-
 	if port == "" {
 		port = "8889"
 	}
