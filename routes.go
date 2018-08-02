@@ -9,13 +9,18 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-var R *mux.Router
-
-func init() {
-	R = mux.NewRouter()
-	R.Get("/api/math/even").Handler(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+func GetRouter() *mux.Router {
+	R := mux.NewRouter()
+	R.Methods("GET").Path("/api/math/even").Handler(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		reqDTO := mux.Vars(r)
-		logrus.Info("req=%#v", reqDTO)
+
+		var numberStr string
+		values, ok := r.URL.Query()["number"]
+		if ok {
+			numberStr = values[0]
+		}
+
+		logrus.Infof("req=%#v", reqDTO)
 		numberStr := reqDTO["number"]
 
 		if len(numberStr) > 0 {
@@ -30,4 +35,6 @@ func init() {
 			}
 		}
 	}))
+
+	return R
 }

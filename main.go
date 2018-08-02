@@ -12,6 +12,6 @@ func main() {
 		port = "8889"
 	}
 
-	http.Handle("/", R)
+	http.Handle("/", GetRouter())
 	fmt.Println(http.ListenAndServe(":"+port, nil))
 }
